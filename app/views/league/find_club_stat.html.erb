@@ -1,0 +1,32 @@
+<div id='stat'>
+  <% unless @club_stat.empty? %>
+    <table class='table table-borderless'>
+      <thead>
+        <tr>
+          <td colspan='2'>Чемпионат</td>
+          <td colspan='2'><%= image_tag("#{@champ}.png", title: "#{@league}", class: "champ") %></td>
+        </tr>
+        <tr>
+          <td colspan='2'>Клуб</td>
+          <td colspan='2'><%= @club.name %></td>
+        </tr>
+        <tr>
+          <th>Количество голов</th>
+          <th>Количество ударов</th>
+          <th>Количество фолов</th>
+          <th>Сезон</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @club_stat.each do |year| %>
+          <tr>
+            <td><%= year.goals %></td>
+            <td><%= year.shots %></td>
+            <td><%= year.fouls %></td>
+            <td><%= year.year.to_s[0..3] %></td>
+          </tr>
+        <% end %>
+      <tbody>
+    </table>
+  <% end %>
+</div>

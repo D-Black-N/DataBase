@@ -1,0 +1,58 @@
+<nav class="justify-content-center navbar navbar-light" style="background-color: #e3f2fd; min-height: 50px;">
+  <%= image_tag("log.png", title: "Logo", id: 'logo')  %> <p class='h4'> BestLeagueFootball</p>
+</nav>
+
+<main>
+  <nav class="navbar navbar-expand-lg navbar-dark", style="background-color: #006400;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Главная", root_url, method: :get,  class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Игры чемпионатов", league_matches_url, method: :get, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Статистика чемпионата", league_champ_stat_url, method: :get, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Статистика клубов", league_club_stat_url, method: :get, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Стадионы", league_countries_url, method: :get, class: 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class='shadow col-10 offset-1'>
+    <table class='table table-borderless text-center'>
+      <tr>
+        <td><%= link_to image_tag("APL.png", title: "APL", class: 'club', id: 'APL'), league_cham_info_url(league: 'APL'), method: :get %></td>
+        <td><%= link_to image_tag("Bund.png", title: "Bundesliga", class: 'club'), league_cham_info_url(league: 'Bund'), method: :get %></td>
+      </tr>
+      <tr>
+        <td><%= link_to image_tag("Lig1.png", title: "Ligue 1", class: 'club'), league_cham_info_url(league: 'Lig1'), method: :get  %></td>
+        <td><%= link_to image_tag("LaLg.png", title: "La Liga", class: 'club'), league_cham_info_url(league: 'LaLg'), method: :get  %></td>
+      </tr>
+      <tr>
+        <td><%= link_to image_tag("SerA.png", title: "Serie A", class: 'club'), league_cham_info_url(league: 'SerA'), method: :get  %></td>
+        <td><%= link_to image_tag("RPL.png", title: "RPL", class: 'club'), league_cham_info_url(league: 'RPL'), method: :get  %></td>
+      </tr>
+      <tr>
+        <td><%= link_to image_tag("NOS.png", title: "Liga NOS", class: 'club'), league_cham_info_url(league: 'NOS'), method: :get %></td>
+        <td><%= link_to image_tag("Ered.png", title: "Eredivisie", class: 'club'), league_cham_info_url(league: 'Ered'), method: :get  %></td>
+      </tr>
+      <tr>
+        <td><%= link_to image_tag("EFL.png", title: "EFL", class: 'club'), league_cham_info_url(league: 'EFL'), method: :get  %></td>
+        <td><%= link_to image_tag("SCP.png", title: "Scottish Primiership", class: 'club'), league_cham_info_url(league: 'SCP'), method: :get  %></td>
+      </tr>
+      <tr>
+        <td colspan='2'><%= link_to image_tag("JPL.png", title: "Jupiler Pro League", class: 'club'), league_cham_info_url(league: 'JPL'), method: :get  %></td>
+      </tr>
+    </table>
+  </div>
+</main>

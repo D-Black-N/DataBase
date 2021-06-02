@@ -1,0 +1,55 @@
+// Place all the styles related to the league controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import 'bootstrap'; 
+
+body {
+    background: image-url('f.jpg') no-repeat;
+    height: 137vh;
+}
+
+#logo {
+    width: 80px; 
+    // height: 70px;
+    background-size: cover;
+}
+
+.shadow {
+    box-shadow: 0 5px 10px rgba(0,0,0,1);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 12pt;
+    height: 117vh;
+    background-color: rgba(255,255,255,0.9);
+    overflow-y: scroll;
+}
+
+.nav-link {
+    color: white;
+}
+
+.club {
+    height: 80px;
+    max-width: 200px;
+}
+
+.team {
+    height: 30px;
+    max-width: 100px;
+}
+
+#APL {
+    height: 65px;
+}
+
+div#match {
+    font-size: 11pt;
+}
+
+#selectors {
+    margin-top: 10px;
+}
+
+.champ{
+    height: 80px
+}

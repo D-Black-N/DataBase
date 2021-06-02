@@ -1,0 +1,81 @@
+<nav class="justify-content-center navbar navbar-light" style="background-color: #e3f2fd; min-height: 50px;">
+  <%= image_tag("log.png", alt: "logo", id: 'logo') %> <p class='h4'>BestLeagueFootball</p>
+</nav>
+
+<main>
+  <nav class="navbar navbar-expand-lg navbar-dark", style="background-color: #006400;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Главная", root_url, method: :get,  class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Игры чемпионатов", league_matches_url, method: :get, class: 'nav-link active' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Статистика чемпионата", league_champ_stat_url, method: :get, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Статистика клубов", league_club_stat_url, method: :get, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Стадионы", league_countries_url, method: :get, class: 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class='shadow col-10 offset-1', id='match'>
+    <div class='row', id='selectors'>
+      <div class='col-6'>
+        <%= label_tag :leagues,'Выберите лигу:' %>
+        <%= select_tag 'Leagues', options_from_collection_for_select(@championships, "cham_id", "champ"), 
+          id: "leagues", remote: true, include_blank: true %>
+      </div>
+      <div id='club', class='row col-6'>
+        <div id='select_club'>
+          <%= label_tag :club,'Выберите клуб: ' %>
+          <%= select_tag 'Clubs', options_from_collection_for_select(@clubs, "team_id", "name"), 
+            id: "clubs", remote: true, include_blank: true, style: "width: 200px" %>
+        </div>  
+      </div>
+    </div>
+    <div id='tab'>
+      <% unless @games.nil? %>
+        <table class='table table-borderless'>
+          <thead>
+            <tr>
+              <th>Табло</th>
+              <th class='text-center'>Дома</th>
+              <th class='text-center'>Счет</th>
+              <th class='text-center'>В гостях</th>
+              <th class='text-center'>Стадион</th>
+              <th class='text-center'>Чемпионат</th>
+              <th style='width: 150px' class='text-center'>Дата</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @games.each do |game| %>
+              <tr>
+                <td><%= game.game_id %></td>
+                <td class='text-center'><%= game.home %></td>
+                <td><%= game.tablo %></td>
+                <td class='text-center'><%= game.away %></td>
+                <td class='text-center'><%= game.stadium %></td>
+                <td class='text-center'><%= game.champ %></td>
+                <td><%= game.game_date.strftime('%d.%m.%Y %H:%M') %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<%= javascript_pack_tag 'select_champ', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'select_club', 'data-turbolinks-track': 'reload' %>

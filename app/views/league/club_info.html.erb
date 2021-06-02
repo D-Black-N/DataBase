@@ -1,0 +1,60 @@
+<nav class="justify-content-center navbar navbar-light" style="background-color: #e3f2fd; min-height: 50px;">
+  <%= image_tag("log.png", alt: "rss feed", id: 'logo')  %> <p class='h4'> BestLeagueFootball</p>
+</nav>
+
+<main>
+  <nav class="navbar navbar-expand-lg navbar-dark", style="background-color: #006400;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Главная", root_url, method: :get,  class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Игры чемпионатов", league_matches_url, method: :get, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Статистика чемпионата", league_champ_stat_url, method: :get, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Статистика клубов", league_club_stat_url, method: :get, class: 'nav-link' %>
+        </li>
+        <li class='nav-item'>
+          <%= link_to "Стадионы", league_countries_url, method: :get, class: 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class='shadow col-10 offset-1'>
+    <% unless @league.nil? %>
+      <table class='table table-borderless table-striped'>
+        <thead>
+          <tr>
+            <td>Клуб: <%= @club %></td>
+            <td class='text-right' colspan="2"> Чемпионат: 
+              <%= @league.champ %> 
+              <%= image_tag("#{@league.cham_id}.png", title: "#{@league.cham_id}", class: 'team') %> 
+            </td>
+          </tr>
+          <tr>
+            <th>Игрок</th>
+            <th>Игровой номер</th>
+            <th>Гражданство</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @info.each do |elem| %>
+            <tr>
+              <td> <%= elem.player %> </td>
+              <td> <%= elem.number %> </td>
+              <td> <%= elem.country %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</main>
