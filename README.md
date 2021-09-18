@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h3>Курсовой проект по предмету "Базы данных"</h3>
 
-Things you may want to cover:
+Курсовой проект выполнен на основании требований кафедры ИУ6 (компьютерные системы и сети) МГТУ им. Н.Э. Баумана.
 
-* Ruby version
+Выполнена работа с базой данных PostgreSQL: создание и заполнение таблиц при помощи psq, а также подключение БД к проекту на Ruby on Rails.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Запросы к БД выполнены запросами на SQL, а не с помощью методов моделей, которые предусматривает фреймворк.
